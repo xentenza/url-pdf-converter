@@ -1,6 +1,7 @@
 # EPFL URL to PDF Converter (bêta)
 
-Unofficial tool for extracting text from a page or news item on the EPFL website and exporting it to PDF format. Should also work on other WordPress-based sites.
+Unofficial tool for extracting text from a page or news item on the EPFL website and exporting it to PDF format.
+Should/could also work on other WordPress-based sites.
 
 ## Install
 
@@ -16,7 +17,9 @@ And then...
 * Add the index.html into a "templates" directory
 
 ## Run Locally
-* python3 app.py
+```bash
+python3 app.py
+```
 * Open your web browser and go to http://localhost:5000 (default port)
 * Enter one or more URLs (each on a new line) in the form
 * Click "Generate" to create a PDF
