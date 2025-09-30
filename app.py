@@ -137,6 +137,10 @@ def generate():
             target_div = main.find('div', {'id': 'import_and_publish_news_modal'})
             if target_div:
                 target_div.decompose()
+
+            target_div =main.find('h4',{'class': 'sr-only'}) #Avoid access map title
+            if target_div:
+                target_div.decompose()
             
             if not main:
                 continue
@@ -153,7 +157,7 @@ def generate():
             if title:
                 story.append(Paragraph(title.text, title_style))
                 story.append(Spacer(0, 5))
-                export_date = time.strftime("%d-%m-%Y %H:%M:%S")
+                export_date = time.strftime("%d %B %Y, %H:%M")
                 header = Paragraph(f"Date d'exportation: {export_date}", date)
                 story.append(header)
                 story.append(Spacer(0, 10))
