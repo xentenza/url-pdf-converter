@@ -46,10 +46,18 @@ def generate():
     title_style = ParagraphStyle(
         name='Title',
         fontSize=11,
-        leading=18,
+        leading=15,
         alignment=1,
         textColor=(0, 0, 0),
         fontName='Helvetica-Bold'
+    )
+
+    date = ParagraphStyle(
+        name='Date',
+        fontSize=3,
+        leading=5,
+        alignment=1,
+        textColor=(0, 0, 0)
     )
 
     body_style = ParagraphStyle(
@@ -144,6 +152,10 @@ def generate():
             title = main.find('h1')
             if title:
                 story.append(Paragraph(title.text, title_style))
+                story.append(Spacer(0, 5))
+                export_date = time.strftime("%d-%m-%Y %H:%M:%S")
+                header = Paragraph(f"Date d'exportation: {export_date}", date)
+                story.append(header)
                 story.append(Spacer(0, 10))
             
             elements = main.find_all(['h2', 'h3', 'h4', 'p', 'li', 'br','strong'])
@@ -169,6 +181,7 @@ def generate():
                     # Add spacer after each non-empty item (except last)
                     if i < len(elements) - 1:
                         story.append(Spacer(0, 8)) 
+
             story.append(PageBreak())
 
             
